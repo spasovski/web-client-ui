@@ -83,6 +83,10 @@ class GridModel extends EventTarget {
     return true;
   }
 
+  isColumnFrozen(column) {
+    return false;
+  }
+
   isRowMovable(row) {
     return true;
   }

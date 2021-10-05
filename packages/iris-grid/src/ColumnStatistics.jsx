@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { LoadingSpinner } from '@deephaven/components';
-import { dhRefresh, vsLock } from '@deephaven/icons';
+import { dhRefresh, vsLock, vsPerson } from '@deephaven/icons';
 import { PropTypes as APIPropTypes } from '@deephaven/jsapi-shim';
 import Log from '@deephaven/log';
 import { PromiseUtils } from '@deephaven/utils';
@@ -174,8 +174,11 @@ class ColumnStatistics extends Component {
         )}
         {!model.isColumnMovable(columnIndex) && (
           <div className="column-statistics-status">
-            <FontAwesomeIcon icon={vsLock} className="mr-1" />
-            Not movable
+            <FontAwesomeIcon
+              icon={model.isColumnFrozen(columnIndex) ? vsPerson : vsLock}
+              className="mr-1"
+            />
+            {model.isColumnFrozen(columnIndex) ? 'Frozen' : 'Not movable'}
           </div>
         )}
         <div className="column-statistics-grid">
