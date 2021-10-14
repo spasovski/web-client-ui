@@ -1754,7 +1754,7 @@ class GridRenderer {
       context.fillStyle = theme.selectionColor;
       context.fill();
 
-      /* 
+      /*
       draw an "inner stroke" that's clipped to just inside of the rects
       to act as a casing to the outer stroke. 3px width because 1px is outside
       the rect (but clipped), 1px is "on" the rect (technically this pixel is
